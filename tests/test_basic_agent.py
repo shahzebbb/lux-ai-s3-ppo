@@ -3,7 +3,7 @@ import unittest
 import jax
 import jax.numpy as jnp
 
-from test.utils import return_vmap_env, return_max_steps, sample_params
+from tests.utils import return_vmap_env, return_max_steps, sample_params
 from train.basic_agent import take_basic_action
 
 
