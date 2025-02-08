@@ -29,7 +29,7 @@ def run_episode_and_reset(rng_key, env_params, num_envs = NUM_ENVS):
         (obs, discovered_relic_positions, discovered_relic_mask, unit_explore_locations, step, team_id) = action_info
 
         # Take action
-        rng_key, actions, discovered_relic_positions, discovered_relic_mask, unit_explore_locations = take_basic_action(rng_key, action_info)
+        rng_key, actions, discovered_relic_positions, discovered_relic_mask, unit_explore_locations = take_basic_action(rng_key, num_envs, action_info)
         # Hackery
         action = {
             'player_0': actions,
