@@ -69,7 +69,8 @@ class TestBasicAgent(unittest.TestCase):
         obs, state, reward, terminated_dict, truncated_dict, info = run_episode_and_reset_jit(subkey, env_params)
         expected_points = jnp.array([9360,3789,26455,13040,12569], dtype=jnp.int32)
         returned_points = obs["player_0"].team_points.sum(axis=0)[:, 0]
-        self.assertEqual(expected_points, returned_points, "Points are not equal, something is wrong with the implementation of basic agent")
+        self.assertTrue(jnp.all(expected_points == returned_points), 
+                       f"Points are not equal, something is wrong with the implementation of basic agent. Expected {expected_points}, got {returned_points}")
 
 
 if __name__ == "__main__":
