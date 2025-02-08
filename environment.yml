@@ -1,0 +1,9 @@
+name: lux-ai-s3
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - jaxlib=*=cuda12*
+  - jax
+  - luxai-s3
