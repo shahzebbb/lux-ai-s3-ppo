@@ -65,8 +65,6 @@ def train(rng):
         _, last_val = network.apply(train_state.params, transformed_obs)
 
         # Calculate advantages and targets via jax.lax.scan
-        # advantages are ...
-        # targets are ...
         advantages, targets = _calculate_gae(traj_batch, last_val, config)
 
         # Perform some epochs of update over collected data
@@ -139,6 +137,7 @@ if __name__ == "__main__":
     "DEBUG": True,
     }
     env, reset_fn, step_fn = make_env()
+    print("It takes around 3 minutes for jax to get initialized. Please wait...")
     rng = jax.random.key(30)
     train_jit = jax.jit(make_train(config))
     out = train_jit(rng)
